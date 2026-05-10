@@ -116,3 +116,21 @@ Make sure you have the following installed on your local machine:
    ```
 
 The application will now be running. The Frontend will typically be available at `http://localhost:3000` (or another port output by Vite in your console).
+
+---
+
+### Unit Test (Backend)
+
+We use Jest, Supertest, and MongoDB Memory Server for testing the backend API.
+
+1. **Run Unit Tests:**
+   ```bash
+   cd backend
+   npm run test
+   ```
+
+2. **Generate Coverage Report:**
+   ```bash
+   cd backend
+   npm run test:coverage
+   ```
