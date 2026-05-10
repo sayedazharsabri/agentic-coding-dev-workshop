@@ -119,17 +119,29 @@ The application will now be running. The Frontend will typically be available at
 
 ---
 
-### Unit Test (Backend)
+### Testing (Backend)
 
-We use Jest, Supertest, and MongoDB Memory Server for testing the backend API.
+We use Jest, Supertest, and MongoDB Memory Server for testing the backend API. The test suite is divided into unit tests (endpoint level) and integration tests (full CRUD lifecycle).
 
 1. **Run Unit Tests:**
+   ```bash
+   cd backend
+   npm run test:unit
+   ```
+
+2. **Run Integration Tests:**
+   ```bash
+   cd backend
+   npm run test:integration
+   ```
+
+3. **Run All Tests (Unit & Integration):**
    ```bash
    cd backend
    npm run test
    ```
 
-2. **Generate Coverage Report:**
+4. **Generate Coverage Report:**
    ```bash
    cd backend
    npm run test:coverage

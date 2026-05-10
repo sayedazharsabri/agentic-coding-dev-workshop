@@ -11,6 +11,8 @@
     "lint:fix": "eslint src/**/*.ts --fix",
     "format": "prettier --write \"src/**/*.ts\"",
     "test": "jest",
+    "test:unit": "jest tests/todo.test.ts",
+    "test:integration": "jest tests/todo.integration.test.ts",
     "test:coverage": "jest --coverage"
   },
   "dependencies": {
