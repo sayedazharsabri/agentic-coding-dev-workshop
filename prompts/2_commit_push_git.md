@@ -1,0 +1,8 @@
+- commit all the changes in current project
+-> Please create or update the .gitignore file first
+-> make sure you are not committing any sensitive information
+-> ignore `node_modules` from both frontend and backend 
+-> ignore `.env` from both frontend and backend
+-> ignore build artifacts (like `dist`, `build`) and OS-specific files (like `.DS_Store`)
+-> Add a proper, descriptive commit message (e.g., "feat: full stack application developed with ai editor")
+-> push the changes to the remote repository (set the upstream branch if necessary)
