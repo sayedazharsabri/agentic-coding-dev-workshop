@@ -1,0 +1,35 @@
+Backend API Test Cases (Target: 70-80% Coverage)
+-------------------------------------------------
+
+1. POST /api/todos (Create Todo)
+   [ ] Should successfully create a new todo with only a title (returns 201)
+   [ ] Should successfully create a new todo with title, description, and isCompleted (returns 201)
+   [ ] Should return 400 Bad Request if the title is missing
+   [ ] Should return 400 Bad Request if the title is empty (less than 1 character)
+   [ ] Should return 400 Bad Request if the title exceeds 100 characters
+   [ ] Should return 400 Bad Request if the description exceeds 500 characters
+   [ ] Should return 400 Bad Request if unexpected data types are provided (e.g., isCompleted as string)
+
+2. GET /api/todos (Get All Todos)
+   [ ] Should return a list of todos successfully (returns 200)
+   [ ] Should verify that the returned todos are sorted by `createdAt` in descending order
+   [ ] Should return an empty array if there are no todos in the database
+
+3. GET /api/todos/:id (Get Todo by ID)
+   [ ] Should return the correct todo object when a valid and existing ID is provided (returns 200)
+   [ ] Should return 404 Not Found if the provided ID is valid but does not exist in the database
+   [ ] Should return 400 Bad Request if the provided ID is not a valid MongoDB ObjectId format
+
+4. PUT /api/todos/:id (Update Todo)
+   [ ] Should successfully update the title of an existing todo (returns 200)
+   [ ] Should successfully toggle the `isCompleted` status of an existing todo (returns 200)
+   [ ] Should successfully update multiple fields simultaneously
+   [ ] Should return 404 Not Found if attempting to update a non-existent but valid ID
+   [ ] Should return 400 Bad Request if the provided ID is not a valid MongoDB ObjectId format
+   [ ] Should return 400 Bad Request if the update payload contains invalid data (e.g., empty title)
+
+5. DELETE /api/todos/:id (Delete Todo)
+   [ ] Should successfully delete an existing todo (returns 200 and success message)
+   [ ] Should verify the deleted todo can no longer be fetched
+   [ ] Should return 404 Not Found if attempting to delete a non-existent but valid ID
+   [ ] Should return 400 Bad Request if the provided ID is not a valid MongoDB ObjectId format
