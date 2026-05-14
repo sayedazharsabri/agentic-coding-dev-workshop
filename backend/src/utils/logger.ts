@@ -1,35 +1,27 @@
+import winston from 'winston';
+
 /**
- * Custom logger utility
+ * Custom logger utility using Winston
  * Debug logs are visible only when NODE_ENV is 'development'
  */
 
-const formatMessage = (level: string, message: string): string => {
-  const timestamp = new Date().toISOString();
-  return `[${timestamp}] [${level}] ${message}`;
-};
+const { combine, timestamp, printf, colorize } = winston.format;
 
-export const logger = {
-  info: (message: string, meta?: any) => {
-    if (process.env.NODE_ENV !== 'test') {
-      console.info(formatMessage('INFO', message), meta || '');
-    }
-  },
+const customFormat = printf(({ level, message, timestamp, ...meta }) => {
+  const metaString = Object.keys(meta).length ? JSON.stringify(meta) : '';
+  return `[${timestamp}] [${level}] ${message} ${metaString}`.trim();
+});
 
-  warn: (message: string, meta?: any) => {
-    if (process.env.NODE_ENV !== 'test') {
-      console.warn(formatMessage('WARN', message), meta || '');
-    }
-  },
-
-  error: (message: string, meta?: any) => {
-    if (process.env.NODE_ENV !== 'test') {
-      console.error(formatMessage('ERROR', message), meta || '');
-    }
-  },
-
-  debug: (message: string, meta?: any) => {
-    if (process.env.NODE_ENV === 'development') {
-      console.debug(formatMessage('DEBUG', message), meta || '');
-    }
-  }
-};
+export const logger = winston.createLogger({
+  level: process.env.NODE_ENV === 'development' ? 'debug' : 'info',
+  format: combine(
+    timestamp(),
+    process.env.NODE_ENV === 'development' ? colorize() : winston.format.uncolorize(),
+    customFormat
+  ),
+  transports: [
+    new winston.transports.Console({
+      silent: process.env.NODE_ENV === 'test'
+    })
+  ]
+});

@@ -34,6 +34,7 @@
 - Prefer incremental and small changes
 - Add explanatory comments for complex or non-obvious logic
 - Remove debugging/console logs before finalizing changes
+- NEVER use console.log, console.error, etc. directly. Always use the custom logger file: E:\work\Repositories\Teaching\agentic-coding-dev-workshop\backend\src\utils\logger.ts
 - Keep code DRY (Don't Repeat Yourself) without premature optimization
 
 

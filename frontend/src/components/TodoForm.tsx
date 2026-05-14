@@ -18,7 +18,6 @@ export const TodoForm: React.FC<TodoFormProps> = ({ onSubmit }) => {
       setTitle(''); // Clear input on success
     } catch (error) {
       // Error is handled by parent, here we just intercept the state reset
-      console.error(error);
     } finally {
       setIsSubmitting(false);
     }
