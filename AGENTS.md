@@ -2,11 +2,17 @@
 
 ## Git Rules
 
-- Never do auto-commit
-- Never do auto-push
-- Never rewrite git history without approval
-- branch reset
-- Write clear, descriptive, and conventional commit messages
+- NEVER run `git commit` unless the user explicitly asks for that specific commit.
+- A previous request for commit does not imply permission for future commits.
+- NEVER run `git push` unless the user explicitly asks for that specific commit.
+- A previous request for auto push with commit does not imply permission for future commits and push.
+- A previous request for git push does not imply permission for future git push.
+- NEVER run scripts or tools (e.g., npm version, release scripts) that internally trigger commits or pushes without approval.
+- Never rewrite git history or use `--force`/`-f` flags without explicit approval.
+- Never run destructive commands like `git reset --hard` or `git clean -fd` without confirmation.
+- Do not create, delete, merge, or rebase branches without explicit approval.
+- Only stage (`git add`) files relevant to the current task.
+- Write clear, descriptive, and conventional commit messages when approved to commit.
 
 ## Database Rules
 - Required confirmation before:
