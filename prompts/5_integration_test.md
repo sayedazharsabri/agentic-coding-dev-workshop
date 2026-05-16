@@ -15,3 +15,4 @@ Please follow these instructions:
 **Important Notes:**
 - Ensure the integration test flow acts sequentially (using the state established from previous test blocks).
 - Validate that all new scripts execute successfully without leaving open handles.
+- Suppress application logs (e.g., `console.error`, `console.info`) when running tests by checking if `process.env.NODE_ENV === 'test'` inside the custom logger. This ensures the test output remains clean, particularly for tests that expect and handle error scenarios like `404 Not Found`.
