@@ -13,6 +13,8 @@
 - Do not create, delete, merge, or rebase branches without explicit approval.
 - Only stage (`git add`) files relevant to the current task.
 - Write clear, descriptive, and conventional commit messages when approved to commit.
+- SafeToAutoRun flag - striclty set it to false and event if I am saying to commit and push, even then show the approve button.
+- Any confusion, dont assume or dont try to fix, ask user explicitly.
 
 ## Database Rules
 - Required confirmation before:
